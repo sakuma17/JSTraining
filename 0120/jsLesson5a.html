@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jsレッスン</title>
+</head>
+<body>
+	<h1>整数を2つ入力してください</h1>
+	x:<input type="number" id="numX" value=""><br>
+	y:<input type="number" id="numY" value=""><br>
+	<button onclick="calc('plus')">+</button>
+  <button onclick="calc('minus')">-</button>
+  <button onclick="calc('multi')">*</button>
+  <button onclick="calc('div')">/</button>
+  <button onclick="calc('mod')">%</button>
+	<div id="result"></div>
+	<script>
+		const numX=document.getElementById("numX");
+		const numY=document.getElementById("numY");
+		const result=document.getElementById("result");
+		const calc=(ope)=>{
+					let n1=parseInt(numX.value);
+					let n2=parseInt(numY.value);
+					let str="";
+					switch(ope){
+								case 'plus':
+									str=`${n1}+${n2}=${n1+n2}`;
+									break;
+								case 'minus':
+									str=`${n1}-${n2}=${n1-n2}`;
+									break;
+								case 'multi':
+									str=`${n1}*${n2}=${n1*n2}`;
+									break;
+								case 'div':
+									str=`${n1}/${n2}=${n1/n2}`;
+									break;
+								case 'mod':
+									str=`${n1}%${n2}=${n1%n2}`;
+									break;
+							}
+					result.textContent=str;
+				};
+	</script>
+</body>
+</html>
