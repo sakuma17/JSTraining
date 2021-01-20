@@ -17,20 +17,20 @@
 		const eleShowArray=document.getElementById("showArray");
 		const result=document.getElementById("result");
 		const add=()=>{
-					let num=parseInt(eleNum.value);
-					nums.push(num);
-					eleNum.value="";
-					eleShowArray.textContent=nums.join(',');
-				};
+			let num=parseInt(eleNum.value);
+			nums.push(num);
+			eleNum.value="";
+			eleShowArray.textContent=nums.join(',');
+		};
 
 		const btCalc=()=>{
-					let sum=0;
-					for(let i=0;i<nums.length;i++){
-							sum+=nums[i];
-							}
-					let msg="要素の平均は"+sum/nums.length+"です。";
-					result.textContent=msg;
-				}
+			let sum=0;
+			for(let i=0;i<nums.length;i++){
+				sum+=nums[i];
+			}
+			let msg="要素の平均は"+sum/nums.length+"です。";
+			result.textContent=msg;
+		}
 	</script>
 </body>
 </html>

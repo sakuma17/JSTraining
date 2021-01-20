@@ -5,21 +5,21 @@
 		<title>BMI</title>
 	</head>
 	<body>
-		体重:<input type="number" id="weight" step="0.1">cm<br>
-		身長:<input type="number" id="height" step="0.1">kg<br>
+		体重:<input type="number" id="weight" step="0.1">kg<br>
+		身長:<input type="number" id="height" step="0.1">cm<br>
 		<button onclick="bmiCalc()">計算</button>
 		<div id="result"></div>
 		<script>
 			const weight=document.getElementById("weight");
 			const height=document.getElementById("height");
-			document.getElementById("result");
+			const result=document.getElementById("result");
 			const bmiCalc=()=>{
-							let n1=parseFloat(weight.value);
-							let n2=parseFloat(height.value)/100;
-							let bmi=n1/(n2*n2);
-							let str=`あなたのbmiは${bmi.toFixed(1)}です。`;
-							result.textContent=str;
-						}
+				let n1=parseFloat(weight.value);
+				let n2=parseFloat(height.value)/100;
+				let bmi=n1/(n2*n2);
+				let str=`あなたのbmiは${bmi.toFixed(1)}です。`;
+				result.textContent=str;
+			}
 		</script>
 	</body>
 </html>

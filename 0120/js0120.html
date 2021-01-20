@@ -9,26 +9,28 @@
 	<p>今日の運勢</p>
 	<button onclick="fortune()">占う</button>
 	<div id="result"></div>
-			<script>
-				const fortune=()=>{
-									let str="";
-									let n=Math.floor(Math.random()*4);
-									switch(n){
-												case 0:
-															str='凶';
-															break;
-												case 1:
-															str='小吉';
-															break;
-												case 2:
-															str='中吉';
-															break;
-												case 3:
-															str='大吉';
-															break;
-									}
-									document.getElementById("result").textContent=str;
-								}
-			</script>
+	<script>
+		const result=document.getElementById("result");
+		const fortune=()=>{
+		let str="";
+		let n=Math.floor(Math.random()*4);
+			switch(n){
+			case 0:
+				str='凶';
+				break;
+			case 1:
+				str='小吉';
+				break;
+			case 2:
+				str='中吉';
+				break;
+			case 3:
+				str='大吉';
+				break;
+			}
+			str=`今日のあなたの運勢は${str}です`;
+			result.textContent=str;
+		}
+	</script>
 </body>
 </html>

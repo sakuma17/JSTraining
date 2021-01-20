@@ -14,15 +14,15 @@
 		let str="";
 		let sum=0;
 		for(let i=0;i<nums.length;i++){
-					str+=nums[i]+(i==nums.length-1?"":",");
-					sum+=nums[i];
+			str+=nums[i]+(i==nums.length-1?"":",");
+			sum+=nums[i];
 		}
 		//document.getElementById("data").textContent=str;
 		document.getElementById("data").textContent=nums.join(",");
 		const btCalc=()=>{
-					let msg="要素の平均は"+sum/nums.length+"です。";
-					document.getElementById("result").textContent=msg;
-				}
+			let msg="要素の平均は"+sum/nums.length+"です。";
+			document.getElementById("result").textContent=msg;
+		}
 	</script>
 </body>
 </html>
