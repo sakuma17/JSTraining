@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jsLesson</title>
+	</head>
+	<body>
+		<button id="a">A</button>
+		<button id="b">B</button>
+		<div id="result"></div>
+<script>
+	/*書き方は違うが同じ処理
+	window.onload=()=>{
+		document.getElementById("a").onclick=myHandler;
+		document.getElementById("b").onclick=myHandler;
+	}
+  */
+	/*
+	window.onload=()=>{
+		document.getElementById("a").addEventListener('click',myHandler);
+		document.getElementById("b").addEventListener('click',myHandler);
+	}
+ */
+	window.addEventListener('load',()=>{
+		document.getElementById("a").addEventListener('click',myHandler);
+		document.getElementById("b").addEventListener('click',myHandler);
+	});
+
+	/*旧式の書き方
+	function myHandler(e){
+		document.getElementById("result").textContent=e.target.textContent+"が選ばれた";
+	}
+  */
+
+	const myHandler=(e)=>{
+		document.getElementById("result").textContent=e.target.textContent+"が選ばれた";
+	}
+</script>
+	</body>
+</html>
