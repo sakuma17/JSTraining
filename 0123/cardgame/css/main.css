@@ -1,0 +1,37 @@
+body{
+	background-color:lightgreen;
+}
+#time{
+	background:black;
+	width:60px;
+	height:60px;
+	line-height:60px;
+	font-size:20px;
+	color:white;
+	text-align:center;
+	border-radius:50%;
+}
+table{
+	margin:10px auto;
+}
+td.card{
+	width:80px;
+	height:120px;
+	margin:2px;
+	background-size:cover;
+}
+td.card.back{
+	background-image:url(../images/z01.gif) !important;
+}
+.fadeOut{
+	animation:fadeOut 1.5s ease-in-out;
+	animation-fill-mode:forwards;
+}
+@keyframes fadeOut{
+	from{
+		opacity:1;
+	}
+	to{
+		opacity:0;
+	}
+}
