@@ -30,8 +30,14 @@ window.onload=function(){
 
 	const card1=document.getElementById("card1");
 	const card2=document.getElementById('card2');
-	const msg=document.getElementById('msg');
+	const msg=document.getElementById("msg");
+	const btn=document.getElementById("btn");
 	let count=0;
+	let hiScore=0;
+
+	btn.addEventListener('click',()=>{
+		msg.textContent='test';
+	});
 
 	function select(select){
 		card1.src=`images/${cards[count].front}`;
@@ -47,12 +53,15 @@ window.onload=function(){
 				msg.textContent='ハズレです！';
 			}
 		}else if(select.equals('low')){
-			if(cards[count]>cards[count+1]{
+			if(cards[count]>cards[count+1]){
 				msg.textContent='当たりです！';
 				count++;
 			}else{
 				msg.textContent='ハズレです！';
 			}
+		}
+		if(count>hiScore){
+			hiScore=count;
 		}
 	}
 
