@@ -5,6 +5,9 @@ window.onload=function(){
 			this.suit=suit;
 			this.num=num;
 			this.front=`${this.suit}${this.num<10?'0':''}${this.num}.gif`;
+			if(num==1){
+				this.num=14;
+			}
 		}
 	}
 	const cards=[];
@@ -31,38 +34,57 @@ window.onload=function(){
 	const card1=document.getElementById("card1");
 	const card2=document.getElementById('card2');
 	const msg=document.getElementById("msg");
+	msg.textContent='ボタンを押すと始まるよ';
 	const btn=document.getElementById("btn");
+	const high=document.getElementById("high");
+	const low=document.getElementById("low");
 	let count=0;
+	let score=0;
 	let hiScore=0;
 
+
 	btn.addEventListener('click',()=>{
-		msg.textContent='test';
+		msg.textContent='次の数字は今の数字より';
+		card1.src=`images/${cards[count].front}`;
+		card2.src='images/z01.gif';
+		btn.className='none';
+		high.removeClass('none');
 	});
 
-	function select(select){
-		card1.src=`images/${cards[count].front}`;
-		card2.src=`images/${cards[count+1].front}`;
-		if(cards[count]==cards[count+1]){
-			msg.textContent='当たり扱いです！';
-			count++;
-		}else if(select.equals('high')){
-			if(cards[count]<cards[count+1]){
-				msg.textContent='当たりです！';
-				count++;
-			}else{
-				msg.textContent='ハズレです！';
-			}
-		}else if(select.equals('low')){
-			if(cards[count]>cards[count+1]){
-				msg.textContent='当たりです！';
-				count++;
-			}else{
-				msg.textContent='ハズレです！';
-			}
-		}
-		if(count>hiScore){
-			hiScore=count;
-		}
+	const gameEnd=()=>{
+		msg.textContent='終了';
 	}
 
+	const select=(eve)=>{
+		card1.src=`images/${cards[count].front}`;
+		card2.src=`images/${cards[count+1].front}`;
+		let select=eve.target.textContent;
+		if(cards[count].num==cards[count+1].num){
+			msg.textContent='当たり扱いです！';
+			score++;
+		}else if(select=='高い'){
+			if(cards[count].num<cards[count+1].num){
+				msg.textContent='当たりです！';
+				score++;
+			}else{
+				msg.textContent='ハズレです！';
+			}
+		}else if(select=='低い'){
+			if(cards[count].num>cards[count+1].num){
+				msg.textContent='当たりです！';
+				score++;
+			}else{
+				msg.textContent='ハズレです！';
+			}
+		}
+		if(score>hiScore){
+			hiScore=score;
+		}
+		count++;
+		if(count==cards.length){
+			gameEnd();
+		}
+	};
+	high.addEventListener('click',select);
+	low.addEventListener('click',select);
 };
