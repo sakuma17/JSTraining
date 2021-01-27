@@ -47,15 +47,24 @@ window.onload=function(){
 		msg.textContent='次の数字は今の数字より';
 		card1.src=`images/${cards[count].front}`;
 		card2.src='images/z01.gif';
-		btn.className='none';
-		high.removeClass('none');
+		btn.classList.add('none');
+		high.classList.remove('none');
+		low.classList.remove('none');
 	});
 
 	const gameEnd=()=>{
-		msg.textContent='終了';
+		msg.textContent=`今回の正解数は${score}回です`;
+		btn.textContent='retry';
+		high.classList.add('none');
+		low.classList.add('none');
+		count=0;
+		score=0;
+		shuffle();
 	}
 
 	const select=(eve)=>{
+		btn.textContent='次へ';
+		btn.classList.remove('none');
 		card1.src=`images/${cards[count].front}`;
 		card2.src=`images/${cards[count+1].front}`;
 		let select=eve.target.textContent;
@@ -81,9 +90,11 @@ window.onload=function(){
 			hiScore=score;
 		}
 		count++;
-		if(count==cards.length){
+		if(count==5){
 			gameEnd();
 		}
+		high.classList.add('none');
+		low.classList.add('none');
 	};
 	high.addEventListener('click',select);
 	low.addEventListener('click',select);
