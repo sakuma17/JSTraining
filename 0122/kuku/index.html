@@ -3,6 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>九九表</title>
+		<style>
+			.blue{
+				background:#1cb8ec;
+      				color:white;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>午後のJS(九九表作成)</h1>
@@ -23,6 +29,9 @@
 								}
 							}else{
 								td.textContent=i*j>0?i*j:i;
+							}
+							if(i==0 || j==0){
+								td.className='blue'
 							}
 							tr.appendChild(td);
 					}

@@ -4,7 +4,7 @@ $(function(){
 	.on('click',function(){$(this).css({color:'red'})});
 	*/
 	$('#logo').on('click',function(){
-		//animate第３引数
+		//animate第３引数に終わった後の動きとして再度animationを入れている
 		$(this).animate({opacity:0,fontSize:'0px'},2000,function(){
 			$(this).animate({opacity:1,fontSize:'140px'},2000,"easeOutBounce");
 		});
